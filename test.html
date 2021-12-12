@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>AR.js Basic Projected Camera Example</title>
+        <script src="dist/bundle.js" ></script>
+        <link rel='manifest' href='THG.webmanifest' />
+        
+    </head>
+    <body>
+    
+    <a-scene
+        vr-mode-ui="enabled: false"
+        arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'
+        renderer='antialias: true; alpha: true'
+        updatelocation
+        >
+        <a-assets> 
+            <a-asset-item src='assets\models\chest\scene.gltf' id='chest'></a-asset-item>
+           
+            <a-asset-item src='assets\models\bigBen1\scene.gltf' id='bigBen'></a-asset-item>
+            <img id="welcome" src="assets/parchment.jpg"> 
+
+        </a-assets>
+      
+                                        
+        <a-camera id="camera" gps-projected-camera  rotation-reader cursor="rayOrigin: mouse" loadclues> 
+            <a-entity geometry='primitive: helparrow' position='0 0 -10'  material='color: red'  ></a-entity>
+            <a-plane id="welcome1" text='align:center;color:white; value: Hello' src="#welcome" width=80 height=80 look-at='[camera]' position='0 0 -50' visible="true"></a-plane>
+            <a-plane text='align:center; color:white; value:Help; width:50' material='color: red ' width=5 height=5 position='50 25 -33' onclick='test' ></a-plane>
+        </a-camera>
+       
+        <a-entity  gltf-model='#bigBen'  gps-projected-entity-place='latitude:50.906858; longitude:-1.356660'   scale='1 1 1'  position='0 0 10'></a-entity>
+        <a-entity  gltf-model='#chest'  gps-projected-entity-place='latitude:50.906158; longitude:-1.356560'   scale='1 1 1'  position='0 0 10'></a-entity>
+     
+       
+          
+    
+        <a-box  material='color: blue' scale='10 10 10'  >
+                <a-text value="Hi"  position="0 1 0"  color='red' look-at='#camera'></a-text>
+
+
+        </a-box>
+     
+           
+
+
+        </a-scene>
+        <div style='position: fixed; top: 10px; width:50%; text-align: right; z-index: 1;'>
+            <button id="closeWelcome">
+                HIDE OBJECTS
+            </button>
+            <button id="search">
+                HIDE OBJECTS
+            </button>
+            <b id="score" >lool</b>
+            <b id="lat" style="padding-left:4em ">Latitude </b>
+            <b id="lon" style="padding-left:4em ">Longitude </b>
+    </body>
+</html>
