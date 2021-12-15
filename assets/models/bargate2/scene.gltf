@@ -1,0 +1,492 @@
+{
+  "accessors": [
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 1273,
+      "max": [
+        308.55523681640625,
+        384.39535522460938,
+        60.106510162353516
+      ],
+      "min": [
+        -305.8541259765625,
+        3.4261271953582764,
+        -74.52911376953125
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 15276,
+      "componentType": 5126,
+      "count": 1273,
+      "max": [
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -1
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 1273,
+      "max": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 2079,
+      "max": [
+        1272
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 30552,
+      "componentType": 5126,
+      "count": 384,
+      "max": [
+        299.04495239257812,
+        340.34597778320312,
+        56.505809783935547
+      ],
+      "min": [
+        -305.8541259765625,
+        3.4261271953582764,
+        -74.52911376953125
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 35160,
+      "componentType": 5126,
+      "count": 384,
+      "max": [
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -0.99995768070220947,
+        -1,
+        -1
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 20368,
+      "componentType": 5126,
+      "count": 384,
+      "max": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -0.99999833106994629,
+        -1,
+        -1,
+        -1
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 8316,
+      "componentType": 5125,
+      "count": 618,
+      "max": [
+        383
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 39768,
+      "componentType": 5126,
+      "count": 670,
+      "max": [
+        39.957431793212891,
+        87.817253112792969,
+        0.91839998960494995
+      ],
+      "min": [
+        -204.24441528320312,
+        -86.063430786132812,
+        -2.687999963760376
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 47808,
+      "componentType": 5126,
+      "count": 670,
+      "max": [
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -1
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 26512,
+      "componentType": 5126,
+      "count": 670,
+      "max": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -0.038781549781560898,
+        -1
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 10788,
+      "componentType": 5125,
+      "count": 1404,
+      "max": [
+        669
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "daniel_slusarz (https://sketchfab.com/daniel_slusarz)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/models/4d9870232431414c9e0055449b471c42",
+      "title": "Gate"
+    },
+    "generator": "Sketchfab-3.18.7",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 16404,
+      "byteOffset": 0,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 55848,
+      "byteOffset": 16404,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 37232,
+      "byteOffset": 72252,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 109484,
+      "uri": "assets/models/bargate2/scene.bin"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "Kamien_3",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.18782077229999999,
+          0.18782077229999999,
+          0.1651321945,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.59999999999999998
+      }
+    },
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "Kamien_4",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.31632700000000002,
+          0.31162099999999998,
+          0.292798,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.59999999999999998
+      }
+    },
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "stal_zardzewiala",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.43415363620000003,
+          0.3864294338,
+          0.36625259560000001,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.59999999999999998
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Brama_Kamien_3_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2
+          },
+          "indices": 3,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Brama_Kamien_4_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 5,
+            "POSITION": 4,
+            "TANGENT": 6
+          },
+          "indices": 7,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Krata_stal zardzewiala_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 9,
+            "POSITION": 8,
+            "TANGENT": 10
+          },
+          "indices": 11,
+          "material": 2,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "name": "RootNode (gltf orientation matrix)",
+      "rotation": [
+        -0.70710678118654746,
+        -0,
+        -0,
+        0.70710678118654757
+      ]
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "RootNode (model correction matrix)"
+    },
+    {
+      "children": [
+        3
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "name": "Gate.fbx"
+    },
+    {
+      "children": [
+        4
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        5,
+        8
+      ],
+      "matrix": [
+        1,
+        0,
+        -4.4408920985006262e-16,
+        0,
+        0,
+        1,
+        0,
+        0,
+        4.4408920985006262e-16,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "name": "brama"
+    },
+    {
+      "children": [
+        6,
+        7
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        14.565507888793945,
+        -3.3046255111694336,
+        -16.965307235717773,
+        1
+      ],
+      "name": "Brama"
+    },
+    {
+      "mesh": 0,
+      "name": "Brama_Kamien_3_0"
+    },
+    {
+      "mesh": 1,
+      "name": "Brama_Kamien_4_0"
+    },
+    {
+      "children": [
+        9
+      ],
+      "matrix": [
+        4.4408920985006262e-16,
+        -1,
+        7.6496428045251064e-32,
+        0,
+        1,
+        4.4408920985006262e-16,
+        4.9303806576313221e-32,
+        0,
+        -4.930380657631326e-32,
+        7.6496428045251043e-32,
+        1,
+        0,
+        14.707067489624023,
+        48.101146697998047,
+        -1.6538587808609009,
+        1
+      ],
+      "name": "Krata"
+    },
+    {
+      "mesh": 2,
+      "name": "Krata_stal zardzewiala_0"
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "OSG_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ]
+}
+

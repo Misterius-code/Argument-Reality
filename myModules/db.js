@@ -54,13 +54,14 @@ function search(){
         const cursor = e.target.result;
         if(cursor) {
         const entity = document.createElement('a-entity');
+        document.createAttribute('gps-projected-entity-place'),
         entity.setAttribute('gltf-model', `#${cursor.value.name}`);
       //  entity.setAttribute('scale',`${cursor.value.scale}`);
-
         entity.setAttribute('id',`clues${cursor.value.id}`);
-        document.createAttribute('gps-projected-entity-place'),
-        entity.setAttribute(`gps-projected-entity-place`,`latitude: ${cursor.value.latitude} ;longitude: ${cursor.value.longitude}`);
+        entity.setAttribute(`gps-projected-entity-place`,`latitude: ${cursor.value.latitude} ;longitude:${cursor.value.longitude}`);
+        entity.setAttribute('Visible',false);
         document.querySelector('a-scene').appendChild(entity);
+
         
         const atext = document.createElement('a-text');
         atext.setAttribute('value',`${cursor.value.text}`);

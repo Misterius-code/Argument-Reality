@@ -56,11 +56,20 @@ if(navigator.geolocation) {
 //look-at="src:#box1"
 window.onload=function(){
 document.getElementById("closeWelcome").addEventListener("click", (e)=> {
-    console.log("work")
     var el = document.querySelector("#welcome1");
     el.setAttribute("visible",false);
-    score()
+ 
     db.search();
+  })
+  document.getElementById("search").addEventListener("click", (e)=> {
+  let locationModel= document.querySelector('#clues1').getAttribute('gps-projected-entity-place');
+  let locationCamera= document.querySelector('#camera').getAttribute('gps-projected-camera');
+   console.log(locationModel.latitude)
+   Math.hypot(locationModel.latitude, locationModel.longitude)
+   console.log(Math.hypot(locationModel.latitude , locationModel.longitude )+"KURWA")
+   score()
+ // document.getElementById('arrow').setAttribute("rotation","30 0 0")
+ // arrow.rotation="30 0 0"
   })
 }
 
@@ -81,6 +90,10 @@ AFRAME.registerGeometry('helparrow', {
     
        // getObject3D(triangle)
 
+
+
+
+       
     }
 });
 
@@ -89,13 +102,21 @@ AFRAME.registerComponent('loadclues', {
    
     }
 });
-
+var clueNr =1;
 //Score 
 function score(){
+   
     var score = 1000;
     var downloadTimer = setInterval(function(){
         score=score-10;
+        // //var position = new THREE.Vector3(clue.x, clue.y, clue.z);
     document.getElementById("score").textContent = score;
+    const arrow = document.getElementById('cone').object3D;
+    detection(clueNr);
+    var position = new THREE.Vector3(10, 60, 30);
+    arrow.up = new THREE.Vector3(0,0,-1);
+    arrow.lookAt(position);
+    
     if(score <= 0)
         clearInterval(downloadTimer);
     },1000);
@@ -111,9 +132,28 @@ AFRAME.registerComponent('updatelocation', {
                 this.loaded = true;
                 alert(`Your initial location is: ${e.detail.position.longitude} ${e.detail.position.latitude}`);
                 console.log(`Your initial location is: ${e.detail.position.longitude} ${e.detail.position.latitude}`);
-                // Add code to download from a web API here...
+             
             }
         });
     }
 });
+function detection(){
+var cameraPosition = document.querySelector('#camera').getAttribute('position');
+var cluePosition =  document.querySelector(`#clues${clueNr}`).getAttribute('position');
+
+console.log(cameraPosition.z - cluePosition.z )
+console.log(cameraPosition.x - cluePosition.x )
+if(cameraPosition.z - cluePosition.z <= 20 && cameraPosition.x - cluePosition.x <=20  &&  cameraPosition.z - cluePosition.z >= -20 &&  cameraPosition.x - cluePosition.x >=-20) 
+{
+
+ 
+    document.querySelector(`#clues${clueNr}`).setAttribute("visible",true);
+    clueNr+=1;
+    
+
+}
+
+
+}
+
 
