@@ -143,7 +143,7 @@ var cluePosition =  document.querySelector(`#clues${clueNr}`).getAttribute('posi
 
 console.log(cameraPosition.z - cluePosition.z )
 console.log(cameraPosition.x - cluePosition.x )
-if(cameraPosition.z - cluePosition.z <= 20 && cameraPosition.x - cluePosition.x <=20  &&  cameraPosition.z - cluePosition.z >= -20 &&  cameraPosition.x - cluePosition.x >=-20) 
+if(cameraPosition.z - cluePosition.z <= 5 && cameraPosition.x - cluePosition.x <=5  &&  cameraPosition.z - cluePosition.z >= -5 &&  cameraPosition.x - cluePosition.x >=-5) 
 {
 
  
