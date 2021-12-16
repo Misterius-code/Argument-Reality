@@ -111,7 +111,8 @@ AFRAME.registerComponent('updatelocation', {
                 document.getElementById("lon").textContent = gpspos.coords.longitude;
                 detection()
                 window.onload=function(){
-               document.querySelector('#clues1').setAttribute('visible',false);
+                document.querySelector('#clues1').setAttribute('visible',false);
+                document.getElementById(`test`).textContent="IT WORK";
                 }
                 
               // document.querySelector('#clues2').setAttribute('visible',false);
