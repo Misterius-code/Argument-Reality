@@ -17,23 +17,20 @@ if(navigator.geolocation) {
     navigator.geolocation.watchPosition (
 
         gpspos=> {
-          
+            document.querySelector('clues1').setAttribute('Visible',false);
             document.getElementById("cluesLeft").textContent = ROTO;
             document.getElementById("lat").textContent = gpspos.coords.latitude;
             document.getElementById("lon").textContent = gpspos.coords.longitude;
             detection()
          
         },
-
         err=> {
             alert(`An error occurred: ${err.code}`);
         },
-
         {
             enableHighAccuracy:true,    
             maximumAge: 5000 
         }
-
     );
 } else {
     alert("Sorry, geolocation not supported in this browser");
@@ -119,12 +116,11 @@ function score(){
 AFRAME.registerComponent('startgame', {
     init: function() {
         this.loaded = false;
+        console.log("PROSZE")
         if(ROTO=true){
             document.querySelector('#camera').setAttribute('gps-projected-camera' ,`simulateLatitude: 1; simulateLongitude: 1;`);
             ROTO=false;
         }
-        console.log("PROSZE")
-        
         db.search();
         score()
 
