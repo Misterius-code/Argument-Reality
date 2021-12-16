@@ -28,11 +28,11 @@ request.onupgradeneeded = e=> {
     });
 
     const clues = [
-        { id: "1", name:"chest" ,latitude : "50.906346", longitude : "-1.356336" ,text:"win" ,positionOfText:"0 6 0"},
+        { id: "1", name:"chest" ,latitude : "50.907087", longitude : "-1.357200" ,text:"win" ,positionOfText:"0 6 0"},
         { id: "2", name:"bigBen" ,latitude: "50.906160", longitude: "-1.356560" ,text:"Big Ben of Southamtpon", positionOfText:"0 40 0"}
         //{ id: "3", name:"chest" ,latitude: "jb139", longitude: "1.356570" ,text:"lal"}
                     ];
-    50.906346
+    
     for(let i=0; i<clues.length; i++) {
        objectStore.add(clues[i]);
     }
@@ -55,6 +55,7 @@ function search(){
         if(cursor) {
         const entity = document.createElement('a-entity');
         document.createAttribute('gps-projected-entity-place'),
+        entity.setAttribute('scale','0.2 0.2 0.2 ');
         entity.setAttribute('gltf-model', `#${cursor.value.name}`);
       //  entity.setAttribute('scale',`${cursor.value.scale}`);
         entity.setAttribute('id',`clues${cursor.value.id}`);

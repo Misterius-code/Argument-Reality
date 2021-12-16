@@ -4,36 +4,37 @@ import 'aframe-look-at-component';
 import { GoogleProjection } from 'jsfreemaplib';
 import * as db from './myModules/db.js';
 
-db.createDB();
+
 var clueNr =1;
+var ROTO= true
 //<a-asset-item src='assets\models\titatnic\scene.gltf' id='titatnic'></a-asset-item>
 //<a-asset-item src='assets\models\walls\scene.gltf' id='walls'></a-asset-item>
 
-if('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js')
-        .then(registration => {
-            console.log('Registered successfully.');
-        })
-        .catch(e => {
-            console.error(`Service worker registration failed: ${e}`);
-        });    
-} else {
-    alert('Sorry, offline functionality not available, please update your browser!');
-}
+db.createDB();
 
 if(navigator.geolocation) {
     navigator.geolocation.watchPosition (
 
         gpspos=> {
-            document.querySelector('#camera').setAttribute('gps-projected-camera' ,"simulateLatitude: 50.90711567299209; simulateLongitude: -1.3572192192077637;");
+            if(ROTO=true){
+            document.querySelector('#camera').setAttribute('gps-projected-camera' ,`simulateLatitude: ${gpspos.coords.latitude}; simulateLongitude: ${gpspos.coords.longitude};`);
+            ROTO=false;
+          
+         
+          
             db.search();
+            score()
+     
+            }
+      
             console.log(`Lat ${gpspos.coords.latitude} Lon ${gpspos.coords.longitude}`); // show on the console
             document.getElementById("lat").textContent = gpspos.coords.latitude;
             document.getElementById("lon").textContent = gpspos.coords.longitude;
+              
            // const merc = new GoogleProjection();
           //  const projected = merc.project(gpspos.coords.longitude, gpspos.coords.latitude);
           //  console.log(`Easting: ${projected[0]}, x: ${projected[0]}, northing: ${projected[1]}, z: ${-projected[1]}`);
-            score()
+          
          
         },
 
@@ -93,19 +94,15 @@ AFRAME.registerGeometry('helparrow', {
     }
 });
 
-AFRAME.registerComponent('loadclues', {
-    init: function() { 
-   
-    }
-});
+
 
 //Score 
 function score(){
     
     var score = 1000;
-    var downloadTimer = setInterval(function(){
-        detection();
+    var timer = setInterval(function(){
         score=score-10;
+        detection();
         // //var position = new THREE.Vector3(clue.x, clue.y, clue.z);
     document.getElementById("score").textContent = score;
     const arrow = document.getElementById('cone').object3D;
@@ -115,7 +112,7 @@ function score(){
     arrow.lookAt(position);
     
     if(score <= 0)
-        clearInterval(downloadTimer);
+        clearInterval(timer);
     },1000);
    
 
@@ -134,17 +131,23 @@ AFRAME.registerComponent('updatelocation', {
         });
     }
 });
+AFRAME.registerComponent('startGame', {
+   
+    tick: function() {
+   
+    }
+});
+     
+      
+    
+
 function detection(){
 var cameraPosition = document.querySelector('#camera').getAttribute('position');
 var cluePosition =  document.querySelector(`#clues${clueNr}`).getAttribute('position');
 
 console.log(cameraPosition.z - cluePosition.z )
-
 //console.log(cameraPosition.x - cluePosition.x )
 if(cameraPosition.z - cluePosition.z <= 20 && cameraPosition.x - cluePosition.x <=20  &&  cameraPosition.z - cluePosition.z >= -20 &&  cameraPosition.x - cluePosition.x >=-20) 
-
-console.log(cameraPosition.x - cluePosition.x )
-
 {
 
  
