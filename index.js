@@ -18,7 +18,8 @@ if(navigator.geolocation) {
 
         gpspos=> {
         
-        
+            document.querySelector('#clues1').setAttribute('visible',false);
+            document.querySelector('#clues2').setAttribute('visible',false);
             document.getElementById("lat").textContent = gpspos.coords.latitude;
             document.getElementById("lon").textContent = gpspos.coords.longitude;
             detection()
@@ -101,19 +102,19 @@ function score(){
 
 }
 
-//AFRAME.registerComponent('updatelocation', {
- //   init: function() {
-  //      this.loaded = false;
-   //     window.addEventListener('gps-camera-update-position', e => {
-   //         if(this.loaded === false) {
-    //            this.loaded = true;
-     //           alert(`Your initial location is: ${e.detail.position.longitude} ${e.detail.position.latitude}`);
-   //             console.log(`Your initial location is: ${e.detail.position.longitude} ${e.detail.position.latitude}`);
-    //            document.getElementById("cluesLeft").textContent = ` LON : ${e.detail.position.longitude}   LAT ${e.detail.position.latitude}  ` ; 
-   //         }
-  //      });
-  //  }
-//});
+AFRAME.registerComponent('updatelocation', {
+   init: function() {
+        this.loaded = false;
+       window.addEventListener('gps-camera-update-position', e => {
+           if(this.loaded === false) {
+               this.loaded = true;
+               alert(`Your initial location is: ${e.detail.position.longitude} ${e.detail.position.latitude}`);
+               console.log(`Your initial location is: ${e.detail.position.longitude} ${e.detail.position.latitude}`);
+               document.getElementById("cluesLeft").textContent = ` LON : ${e.detail.position.longitude}   LAT ${e.detail.position.latitude}  ` ; 
+           }
+       });
+    }
+});
 AFRAME.registerComponent('startgame', {
     init: function() {
         this.loaded = false;
