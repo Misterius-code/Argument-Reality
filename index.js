@@ -19,12 +19,8 @@ if(navigator.geolocation) {
             if(ROTO=true){
             document.querySelector('#camera').setAttribute('gps-projected-camera' ,`simulateLatitude: ${gpspos.coords.latitude}; simulateLongitude: ${gpspos.coords.longitude};`);
             ROTO=false;
-          
-         
-          
             db.search();
             score()
-     
             }
       
             console.log(`Lat ${gpspos.coords.latitude} Lon ${gpspos.coords.longitude}`); // show on the console
