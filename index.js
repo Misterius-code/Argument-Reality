@@ -43,7 +43,7 @@ if(navigator.geolocation) {
 }
 
 //
-
+//
 
 
 //look-at="src:#box1"
