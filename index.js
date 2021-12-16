@@ -10,18 +10,16 @@ var ROTO= true
 var scoreDecrise=10;
 //<a-asset-item src='assets\models\titatnic\scene.gltf' id='titatnic'></a-asset-item>
 //<a-asset-item src='assets\models\walls\scene.gltf' id='walls'></a-asset-item>
-
 db.createDB();
+
 
 if(navigator.geolocation) {
     navigator.geolocation.watchPosition (
 
         gpspos=> {
             if(ROTO=true){
-            document.querySelector('#camera').setAttribute('gps-projected-camera' ,`simulateLatitude: ${gpspos.coords.latitude}; simulateLongitude: ${gpspos.coords.longitude};`);
-            ROTO=false;
-            db.search();
-            score()
+                document.querySelector('#camera').setAttribute('gps-projected-camera' ,`simulateLatitude: ${gpspos.coords.latitude}; simulateLongitude: ${gpspos.coords.longitude};`);
+                ROTO=false;
             }
             document.getElementById("cluesLeft").textContent = ROTO;
             document.getElementById("lat").textContent = gpspos.coords.latitude;
@@ -121,13 +119,20 @@ function score(){
   //      });
   //  }
 //});
-//AFRAME.registerComponent('startgame', {
+AFRAME.registerComponent('startgame', {
+    init: function() {
+        this.loaded = false;
+        console.log("PROSZE")
+        
+        db.search();
+        score()
+
+    },
+    tick: function(totalTime, timeSinceLastTick) {
+        console.log("KURWAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
    
-   // tick: function(totalTime, timeSinceLastTick) {
-   //     console.log("KURWAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-   
- //   }
-//});
+   }
+});
      
       
     
