@@ -23,7 +23,7 @@ if(navigator.geolocation) {
             db.search();
             score()
             }
-          
+            document.getElementById("cluesLeft").textContent = ROTO;
             document.getElementById("lat").textContent = gpspos.coords.latitude;
             document.getElementById("lon").textContent = gpspos.coords.longitude;
           
