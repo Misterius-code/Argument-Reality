@@ -120,7 +120,7 @@ AFRAME.registerComponent('startgame', {
     init: function() {
         this.loaded = false;
         if(ROTO=true){
-            document.querySelector('#camera').setAttribute('gps-projected-camera' ,`simulateLatitude: ${gpspos.coords.latitude}; simulateLongitude: ${gpspos.coords.longitude};`);
+            document.querySelector('#camera').setAttribute('gps-projected-camera' ,`simulateLatitude: 1; simulateLongitude: 1;`);
             ROTO=false;
         }
         console.log("PROSZE")
