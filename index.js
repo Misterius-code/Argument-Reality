@@ -12,7 +12,7 @@ var scoreDecrise=10;
 //<a-asset-item src='assets\models\walls\scene.gltf' id='walls'></a-asset-item>
 db.createDB();
 
-
+/*
 if(navigator.geolocation) {
     navigator.geolocation.watchPosition (
 
@@ -36,7 +36,7 @@ if(navigator.geolocation) {
 } else {
     alert("Sorry, geolocation not supported in this browser");
 }
-
+*/
 
 
 
@@ -111,6 +111,8 @@ AFRAME.registerComponent('updatelocation', {
                alert(`Your initial location is: ${e.detail.position.longitude} ${e.detail.position.latitude}`);
                console.log(`Your initial location is: ${e.detail.position.longitude} ${e.detail.position.latitude}`);
                document.getElementById("cluesLeft").textContent = ` LON : ${e.detail.position.longitude}   LAT ${e.detail.position.latitude}  ` ; 
+               document.getElementById("lat").textContent = e.detail.position.longitude;
+               document.getElementById("lon").textContent =e.detail.position.latitude;
            }
        });
     }
