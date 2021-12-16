@@ -12,31 +12,9 @@ var scoreDecrise=10;
 //<a-asset-item src='assets\models\walls\scene.gltf' id='walls'></a-asset-item>
 db.createDB();
 
-/*
-if(navigator.geolocation) {
-    navigator.geolocation.watchPosition (
+function GpsCheck(){
 
-        gpspos=> {
-        
-            document.querySelector('#clues1').setAttribute('visible',false);
-            document.querySelector('#clues2').setAttribute('visible',false);
-            document.getElementById("lat").textContent = gpspos.coords.latitude;
-            document.getElementById("lon").textContent = gpspos.coords.longitude;
-            detection()
-         
-        },
-        err=> {
-            alert(`An error occurred: ${err.code}`);
-        },
-        {
-            enableHighAccuracy:true,    
-            maximumAge: 5000 
-        }
-    );
-} else {
-    alert("Sorry, geolocation not supported in this browser");
 }
-*/
 
 
 
@@ -92,6 +70,7 @@ function score(){
     var score = 30000;
     var timer = setInterval(function(){
         score=score-10;
+        GpsCheck();
         detection();
     document.getElementById("score").textContent = score;
   
@@ -101,7 +80,7 @@ function score(){
    
 
 }
-
+/*
 AFRAME.registerComponent('updatelocation', {
    init: function() {
         this.loaded = false;
@@ -111,20 +90,51 @@ AFRAME.registerComponent('updatelocation', {
                alert(`Your initial location is: ${e.detail.position.longitude} ${e.detail.position.latitude}`);
                console.log(`Your initial location is: ${e.detail.position.longitude} ${e.detail.position.latitude}`);
                document.getElementById("cluesLeft").textContent = ` LON : ${e.detail.position.longitude}   LAT ${e.detail.position.latitude}  ` ; 
-               document.getElementById("lat").textContent = e.detail.position.longitude;
-               document.getElementById("lon").textContent =e.detail.position.latitude;
            }
        });
     }
+});
+*/
+
+AFRAME.registerComponent('updatelocation', {
+    init: function() {
+    if(navigator.geolocation) {
+        navigator.geolocation.watchPosition (
+    
+            gpspos=> {
+            //    if(ROTO=true){
+             //       document.querySelector('#camera').setAttribute('gps-projected-camera' ,`simulateLatitude: 1; simulateLongitude: 1;`);
+            //        ROTO=false;
+            //    }
+             
+                document.getElementById("lat").textContent = gpspos.coords.latitude;
+                document.getElementById("lon").textContent = gpspos.coords.longitude;
+                detection()
+                window.onload=function(){
+               document.querySelector('#clues1').setAttribute('visible',false);
+                }
+                
+              // document.querySelector('#clues2').setAttribute('visible',false);
+               console.log("CO JEST KURWA");
+            },
+            err=> {
+                alert(`An error occurred: ${err.code}`);
+            },
+            {
+                enableHighAccuracy:true,    
+                maximumAge: 5000 
+            }
+        );
+    } else {
+        alert("Sorry, geolocation not supported in this browser");
+    }
+}
 });
 AFRAME.registerComponent('startgame', {
     init: function() {
         this.loaded = false;
         console.log("PROSZE")
-        if(ROTO=true){
-         //   document.querySelector('#camera').setAttribute('gps-projected-camera' ,`simulateLatitude: 1; simulateLongitude: 1;`);
-            ROTO=false;
-        }
+     
         db.search();
         score()
 
@@ -145,13 +155,14 @@ var numberOfClues = document.getElementById(`allClues`).textContent;
 if(clueNr <= numberOfClues){
 var cameraPosition = document.querySelector('#camera').getAttribute('position');
 var cluePosition =  document.querySelector(`#clues${clueNr}`).getAttribute('position');
-//console.log(cameraPosition.z - cluePosition.z )
+console.log(cameraPosition.z - cluePosition.z )
 //console.log(cameraPosition.x - cluePosition.x )
 
 if(cameraPosition.z - cluePosition.z <= 20 && cameraPosition.x - cluePosition.x <=20  &&  cameraPosition.z - cluePosition.z >= -20 &&  cameraPosition.x - cluePosition.x >=-20) 
 {
     document.querySelector(`#clues${clueNr}`).setAttribute("visible",true);
     clueNr+=1;   
+    
   
 } 
 }
