@@ -59,6 +59,8 @@ function search(){
       //  entity.setAttribute('scale',`${cursor.value.scale}`);
         entity.setAttribute('id',`clues${cursor.value.id}`);
         entity.setAttribute(`gps-projected-entity-place`,`latitude: ${cursor.value.latitude} ;longitude:${cursor.value.longitude}`);
+      //  entity.setAttribute('distancemsg','88 meters');
+      //  entity.setAttribute('distance','88.3611045119928');
         entity.setAttribute('Visible',false);
         document.querySelector('a-scene').appendChild(entity);
 
