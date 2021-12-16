@@ -122,7 +122,7 @@ AFRAME.registerComponent('startgame', {
         this.loaded = false;
         console.log("PROSZE")
         if(ROTO=true){
-            document.querySelector('#camera').setAttribute('gps-projected-camera' ,`simulateLatitude: 1; simulateLongitude: 1;`);
+         //   document.querySelector('#camera').setAttribute('gps-projected-camera' ,`simulateLatitude: 1; simulateLongitude: 1;`);
             ROTO=false;
         }
         db.search();
