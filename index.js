@@ -139,8 +139,12 @@ var cameraPosition = document.querySelector('#camera').getAttribute('position');
 var cluePosition =  document.querySelector(`#clues${clueNr}`).getAttribute('position');
 
 console.log(cameraPosition.z - cluePosition.z )
+
 //console.log(cameraPosition.x - cluePosition.x )
 if(cameraPosition.z - cluePosition.z <= 20 && cameraPosition.x - cluePosition.x <=20  &&  cameraPosition.z - cluePosition.z >= -20 &&  cameraPosition.x - cluePosition.x >=-20) 
+
+console.log(cameraPosition.x - cluePosition.x )
+
 {
 
  
