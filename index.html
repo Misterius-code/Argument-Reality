@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>AR.js Basic Projected Camera Example</title>
+        <script src="dist/bundle.js" ></script>
+        <link rel='manifest' href='THG.webmanifest' />
+        
+    </head>
+    <body>
+    
+    <a-scene
+        vr-mode-ui="enabled: false"
+        raycaster="objects: [gps-projected-entity-place];"
+        arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'
+        renderer='antialias: true; alpha: true'
+        startgame
+        
+        >
+        <a-assets> 
+            <a-asset-item src='assets\models\chest\scene.gltf' id='chest'></a-asset-item>
+            <a-asset-item src='assets\models\bigBen\scene.gltf' id='bigBen'></a-asset-item>
+            <a-asset-item src='assets\models\titanic\scene.gltf' id='titanic'></a-asset-item>
+            <a-asset-item src='assets\models\bargate\scene.gltf' id='bargate'></a-asset-item>
+           
+
+        </a-assets>
+      
+                                        
+        <a-camera  id="camera" gps-projected-camera  rotation-reader cursor="rayOrigin: mouse" updatelocation > 
+            <a-cone  id="cone" color="red" radius-bottom="0.5"  position='0 -2 -5'  rotation="50 0 0" ></a-cone>
+            <a-entity id="arrow" geometry='primitive: helparrow' position='0 -1 -5'  material='color: red' rotation="50 0 0" ></a-entity>
+           
+            <a-plane text='align:center; color:white; value:Help; width:50' material='color: red ' width=5 height=5 position='50 25 -33' ></a-plane>
+        </a-camera>
+       
+
+        <a-entity  gltf-model='#bigBen'  gps-projected-entity-place='latitude:50.907025; longitude:-1.357324'   scale='0.2 0.2 0.2'  position='0 0 10' id="lel"></a-entity>
+        <a-entity  gltf-model='#chest'  gps-projected-entity-place='latitude:50.906158; longitude:-1.356560'   scale='0.2 0.2 0.2'  position='0 0 10'></a-entity>
+        <a-entity  gltf-model='#titanic'  gps-projected-entity-place='latitude:50.906158; longitude:-1.356560'   scale='0.2 0.2 0.2'  position='0 0 10'></a-entity>
+        <a-entity  gltf-model='#bargate'  gps-projected-entity-place='latitude:50.907025; longitude:-1.357324'   scale='0.2 0.2 0.2'  position='0 0 10' ></a-entity>
+     
+          
+    
+        <a-box  material='color: blue' scale='10 10 10' id="box1" position="10, 0 30"   gps-projected-entity-place='latitude:50.907087; longitude:-1.357200'> 
+                <a-text value="Hi"  position="0 1 0"  color='red' look-at='#camera'></a-text>
+        </a-box>
+        <a-box  material='color: green' scale='10 10 10' id="box1" position="10, 0 30"   gps-projected-entity-place='latitude:50.906160; longitude:-1.356560'> 
+            <a-text value="Hi"  position="0 1 0"  color='red' look-at='#camera'></a-text>
+
+
+    </a-box>
+           
+
+    <div style='  position: fixed; font-size: 18px;  color:white;   left: 0%; z-index: 1; '>
+   
+    
+        <button id="search">
+            HIDE OBJECTS
+        </button>
+       
+        <b >Latitude:</b>
+        <b id="lat" style="padding-right:4em ">Latitude </b>
+        <b >Longitude:</b>
+        <b id="lon" style="padding-right:4em "> Longitude </b>
+        <b id="cluesLeft" >Clues:</b>
+        <b >/</b>
+        <b id="allClues" style="padding-right:4em "> Clues </b>
+        <b >Score</b>
+        <b id="score" style="padding-right:4em ">Score</b>
+        </div>
+    </a-scene>
+    
+      
+      
+     
+      
+    </body>
+</html>
