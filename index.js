@@ -17,8 +17,8 @@ if(navigator.geolocation) {
     navigator.geolocation.watchPosition (
 
         gpspos=> {
-            document.querySelector('clues1').setAttribute('Visible',false);
-            document.getElementById("cluesLeft").textContent = ROTO;
+        
+        
             document.getElementById("lat").textContent = gpspos.coords.latitude;
             document.getElementById("lon").textContent = gpspos.coords.longitude;
             detection()
@@ -48,7 +48,8 @@ window.onload=function(){
    console.log(locationModel.latitude)
    Math.hypot(locationModel.latitude, locationModel.longitude)
    console.log(Math.hypot(locationModel.latitude , locationModel.longitude )+"KURWA")
-  
+   document.querySelector('clues1').setAttribute('Visible',false);
+   document.querySelector('clues2').setAttribute('Visible',false);
  // document.getElementById('arrow').setAttribute("rotation","30 0 0")
  // arrow.rotation="30 0 0"
   })
