@@ -17,10 +17,7 @@ if(navigator.geolocation) {
     navigator.geolocation.watchPosition (
 
         gpspos=> {
-            if(ROTO=true){
-                document.querySelector('#camera').setAttribute('gps-projected-camera' ,`simulateLatitude: ${gpspos.coords.latitude}; simulateLongitude: ${gpspos.coords.longitude};`);
-                ROTO=false;
-            }
+          
             document.getElementById("cluesLeft").textContent = ROTO;
             document.getElementById("lat").textContent = gpspos.coords.latitude;
             document.getElementById("lon").textContent = gpspos.coords.longitude;
@@ -122,6 +119,10 @@ function score(){
 AFRAME.registerComponent('startgame', {
     init: function() {
         this.loaded = false;
+        if(ROTO=true){
+            document.querySelector('#camera').setAttribute('gps-projected-camera' ,`simulateLatitude: ${gpspos.coords.latitude}; simulateLongitude: ${gpspos.coords.longitude};`);
+            ROTO=false;
+        }
         console.log("PROSZE")
         
         db.search();
