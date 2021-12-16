@@ -7,6 +7,7 @@ import * as db from './myModules/db.js';
 
 var clueNr =1;
 var ROTO= true
+var scoreDecrise=10;
 //<a-asset-item src='assets\models\titatnic\scene.gltf' id='titatnic'></a-asset-item>
 //<a-asset-item src='assets\models\walls\scene.gltf' id='walls'></a-asset-item>
 
@@ -22,14 +23,9 @@ if(navigator.geolocation) {
             db.search();
             score()
             }
-      
-            console.log(`Lat ${gpspos.coords.latitude} Lon ${gpspos.coords.longitude}`); // show on the console
+          
             document.getElementById("lat").textContent = gpspos.coords.latitude;
             document.getElementById("lon").textContent = gpspos.coords.longitude;
-              
-           // const merc = new GoogleProjection();
-          //  const projected = merc.project(gpspos.coords.longitude, gpspos.coords.latitude);
-          //  console.log(`Easting: ${projected[0]}, x: ${projected[0]}, northing: ${projected[1]}, z: ${-projected[1]}`);
           
          
         },
@@ -82,8 +78,13 @@ AFRAME.registerGeometry('helparrow', {
         this.geometry = new THREE.ShapeGeometry(triangle);
     
        // getObject3D(triangle)
+       const arrow = document.getElementById('cone').object3D;
 
-
+       var position = new THREE.Vector3(10, 60, 30);
+       arrow.up = new THREE.Vector3(0,0,-1);
+       arrow.lookAt(position);
+       
+   // //var position = new THREE.Vector3(clue.x, clue.y, clue.z);
 
 
        
@@ -94,19 +95,12 @@ AFRAME.registerGeometry('helparrow', {
 
 //Score 
 function score(){
-    
-    var score = 1000;
+    var score = 30000;
     var timer = setInterval(function(){
         score=score-10;
         detection();
-        // //var position = new THREE.Vector3(clue.x, clue.y, clue.z);
     document.getElementById("score").textContent = score;
-    const arrow = document.getElementById('cone').object3D;
-
-    var position = new THREE.Vector3(10, 60, 30);
-    arrow.up = new THREE.Vector3(0,0,-1);
-    arrow.lookAt(position);
-    
+  
     if(score <= 0)
         clearInterval(timer);
     },1000);
@@ -114,46 +108,45 @@ function score(){
 
 }
 
-AFRAME.registerComponent('updatelocation', {
-    init: function() {
-        this.loaded = false;
-        window.addEventListener('gps-camera-update-position', e => {
-            if(this.loaded === false) {
-                this.loaded = true;
-                alert(`Your initial location is: ${e.detail.position.longitude} ${e.detail.position.latitude}`);
-                console.log(`Your initial location is: ${e.detail.position.longitude} ${e.detail.position.latitude}`);
-                document.getElementById("cluesLeft").textContent = ` LON : ${e.detail.position.longitude}   LAT ${e.detail.position.latitude}  ` ; 
-            }
-        });
-    }
-});
-AFRAME.registerComponent('startGame', {
+//AFRAME.registerComponent('updatelocation', {
+ //   init: function() {
+  //      this.loaded = false;
+   //     window.addEventListener('gps-camera-update-position', e => {
+   //         if(this.loaded === false) {
+    //            this.loaded = true;
+     //           alert(`Your initial location is: ${e.detail.position.longitude} ${e.detail.position.latitude}`);
+   //             console.log(`Your initial location is: ${e.detail.position.longitude} ${e.detail.position.latitude}`);
+    //            document.getElementById("cluesLeft").textContent = ` LON : ${e.detail.position.longitude}   LAT ${e.detail.position.latitude}  ` ; 
+   //         }
+  //      });
+  //  }
+//});
+//AFRAME.registerComponent('startgame', {
    
-    tick: function() {
+   // tick: function(totalTime, timeSinceLastTick) {
+   //     console.log("KURWAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
    
-    }
-});
+ //   }
+//});
      
       
     
 
 function detection(){
+var numberOfClues = document.getElementById(`allClues`).textContent;
+if(clueNr <= numberOfClues){
 var cameraPosition = document.querySelector('#camera').getAttribute('position');
 var cluePosition =  document.querySelector(`#clues${clueNr}`).getAttribute('position');
-
-console.log(cameraPosition.z - cluePosition.z )
+//console.log(cameraPosition.z - cluePosition.z )
 //console.log(cameraPosition.x - cluePosition.x )
+
 if(cameraPosition.z - cluePosition.z <= 20 && cameraPosition.x - cluePosition.x <=20  &&  cameraPosition.z - cluePosition.z >= -20 &&  cameraPosition.x - cluePosition.x >=-20) 
 {
-
- 
     document.querySelector(`#clues${clueNr}`).setAttribute("visible",true);
-    clueNr+=1;
-    console.log("WHYYYYYYY")
-    
+    clueNr+=1;   
 
 } 
-
+}
 
 }
 

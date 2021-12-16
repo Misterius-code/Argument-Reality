@@ -12,8 +12,8 @@
         raycaster="objects: [gps-projected-entity-place];"
         arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'
         renderer='antialias: true; alpha: true'
+        startgame
         
-        updatelocation
         >
         <a-assets> 
             <a-asset-item src='assets\models\chest\scene.gltf' id='chest'></a-asset-item>
@@ -25,7 +25,7 @@
         </a-assets>
       
                                         
-        <a-camera startGame id="camera" gps-projected-camera  rotation-reader cursor="rayOrigin: mouse"  > 
+        <a-camera  id="camera" gps-projected-camera  rotation-reader cursor="rayOrigin: mouse" updatelocation > 
             <a-cone  id="cone" color="red" radius-bottom="0.5"  position='0 -2 -5'  rotation="50 0 0" ></a-cone>
             <a-entity id="arrow" geometry='primitive: helparrow' position='0 -1 -5'  material='color: red' rotation="50 0 0" ></a-entity>
            
@@ -61,8 +61,8 @@
         <b id="lat" style="padding-right:4em ">Latitude </b>
         <b >Longitude:</b>
         <b id="lon" style="padding-right:4em "> Longitude </b>
-        <b >Clues:</b>
-        <b id="cluesLeft" style="padding-right:4em "> Clues </b>
+        <b id="cluesLeft" >Clues:</b>
+        <b id="allClues" style="padding-right:4em "> Clues </b>
         <b >Score</b>
         <b id="score" style="padding-right:4em ">Score</b>
         </div>
