@@ -55,7 +55,7 @@ function search(){
         entity.setAttribute('gltf-model', `#${cursor.value.name}`);
         entity.setAttribute('id',`clues${cursor.value.id}`);
         entity.setAttribute(`gps-projected-entity-place`,`latitude: ${cursor.value.latitude} ;longitude:${cursor.value.longitude}`);
-        entity.setAttribute('Visible',false);
+        entity.setAttribute('visible',false);
         document.querySelector('a-scene').appendChild(entity);
         
         const atext = document.createElement('a-text');
