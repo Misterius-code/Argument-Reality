@@ -24,6 +24,7 @@ window.onload=function(){
     sparrow.setAttribute('look-at',`#clues${clueNr}`);
     sparrow.setAttribute('visible',true);
     scoreDecrease=30;
+    
    //document.querySelector('#clues1').setAttribute('visible',false);
   // document.querySelector('#clues2').setAttribute('visible',false);
 
@@ -107,7 +108,7 @@ AFRAME.registerComponent('updatelocation', {
              
                 document.getElementById("lat").textContent = gpspos.coords.latitude;
                 document.getElementById("lon").textContent = gpspos.coords.longitude;
-                detection()
+              //  detection()
                 window.onload=function(){
                 document.querySelector('#clues1').setAttribute('visible',false);
                 document.getElementById(`test`).textContent="IT WORK";
@@ -160,9 +161,15 @@ if(cameraPosition.z - cluePosition.z <= 20 && cameraPosition.x - cluePosition.x 
     clueNr+=1;   
     scoreDecrease=10;
     document.querySelector('#sparrow').setAttribute('visible',false);
-    
+        
   
-} 
+}
+
+}else{
+scoreDecrease=0
+console.log("YOU WON")
+alert(`You found all ${numberOfClues} clues. Congratulation , your soce is   ${document.getElementById("score").textContent}`)
+
 }
 
 }

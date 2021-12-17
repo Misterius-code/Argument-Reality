@@ -22,8 +22,10 @@ request.onupgradeneeded = e=> {
     });
 
     const clues = [
-        { id: "1", name:"chest" ,latitude : "50.907087", longitude : "-1.357200" ,text:"win" ,positionOfText:"0 6 0"},
-        { id: "2", name:"bigBen" ,latitude: "50.906160", longitude: "-1.356560" ,text:"Big Ben of Southamtpon", positionOfText:"0 40 0"}
+        { id: "1", name:"titanic" ,latitude: "50.906160", longitude: "-1.354560" ,text:"", positionOfText:"0 30 0"},
+        { id: "3", name:"chest" ,latitude : "50.907087", longitude : "-1.357200" ,text:"win" ,positionOfText:"0 6 0"},
+        { id: "2", name:"bigBen" ,latitude: "50.906160", longitude: "-1.356560" ,text:"Big Ben of Southamtpon", positionOfText:"0 40 0"},
+        { id: "4", name:"bargate" ,latitude: "50.906160", longitude: "-1.356460" ,text:"Big Ben of Southamtpon", positionOfText:"0 40 0"}
        
                     ];
                     
