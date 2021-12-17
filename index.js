@@ -106,8 +106,7 @@ if(cameraPosition.z - cluePosition.z <= 5 && cameraPosition.x - cluePosition.x <
     document.querySelector(`#clues${clueNr}`).setAttribute("visible",true);
     clueNr+=1;   
     scoreDecrease=10;
-    document.querySelector('#sparrow').setAttribute('visible',false);
-        
+    document.querySelector('#sparrow').setAttribute('visible',false);   
   
 }
 
@@ -116,7 +115,6 @@ if(clueNr=1)
 {
 
 }else{
-
 
 console.log("YOU WON")
 alert(`You found all ${numberOfClues} clues. Congratulation , your score is   ${document.getElementById("points").textContent}`)
