@@ -138,7 +138,7 @@ if(cameraPosition.z - cluePosition.z <= 20 && cameraPosition.x - cluePosition.x 
 scoreDecrease=0
 console.log("YOU WON")
 alert(`You found all ${numberOfClues} clues. Congratulation , your soce is   ${document.getElementById("score").textContent}`)
-
+clueNr+=1;  
 }
 
 }
