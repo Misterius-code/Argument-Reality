@@ -2,7 +2,7 @@ let db;
 function createDB(){
 let nrofclues;
 const indexedDB = window.indexedDB;
-const request = indexedDB.open("cluesDB", 3);
+const request = indexedDB.open("cluesDB", 1);
 request.onsuccess = function(e) {
     console.log("Successfully opened the database!");
     db = e.target.result;
@@ -22,10 +22,10 @@ request.onupgradeneeded = e=> {
     });
 
     const clues = [
-        { id: "2", name:"titanic" ,latitude: "50.906160", longitude: "-1.354560" ,text:"Berth 44", positionOfText:"0 30 0"},
-        { id: "3", name:"chest" ,latitude : "50.907087", longitude : "-1.357200" ,text:"win" ,positionOfText:"0 6 0"},
+        { id: "2", name:"titanic" ,latitude: "50.906160", longitude: "-1.356560" ,text:"Berth 44", positionOfText:"0 30 0"},
+        { id: "3", name:"chest" ,latitude : "50.906160", longitude : "-1.356560" ,text:"Winner" ,positionOfText:"0 6 0"},
         { id: "1", name:"bigBen" ,latitude: "50.906160", longitude: "-1.356560" ,text:"Big Ben of Southamtpon", positionOfText:"0 40 0"},
-        { id: "4", name:"bargate" ,latitude: "50.906160", longitude: "-1.356460" ,text:"Bar+gate = ?", positionOfText:"0 40 0"}
+        { id: "4", name:"bargate" ,latitude: "50.906160", longitude: "-1.356560" ,text:"Bar+gate = ?", positionOfText:"0 40 0"}
        
                     ];
                     

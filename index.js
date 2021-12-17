@@ -31,17 +31,17 @@ window.onload=function(){
   })
 }
 
-
+var score ;
 
 //Score 
-function score(){
-    var score = 30000;
+function points(){
+    score = 30000;
     var timer = setInterval(function(){
         score=score-scoreDecrease;
         ;
         GpsCheck();
         detection();
-    document.getElementById("score").textContent = score;
+    document.getElementById("points").textContent = score;
     if(score <= 0)
         clearInterval(timer);
     },1000);
@@ -103,7 +103,7 @@ AFRAME.registerComponent('startgame', {
     init: function() {
         this.loaded = false;
         db.search();
-        score()
+        points()
     },
     
     tick: function(totalTime, timeSinceLastTick) {
@@ -137,8 +137,8 @@ if(cameraPosition.z - cluePosition.z <= 20 && cameraPosition.x - cluePosition.x 
 }else{
 
 console.log("YOU WON")
-alert(`You found all ${numberOfClues} clues. Congratulation , your soce is   ${document.getElementById("score").textContent}`)
-scoreDecrease=-30000;
+alert(`You found all ${numberOfClues} clues. Congratulation , your soce is   ${document.getElementById("points").textContent}`)
+score=0;
 }
 
 }
