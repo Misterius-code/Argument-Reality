@@ -20,20 +20,23 @@
             <a-asset-item src='assets\models\bigBen\scene.gltf' id='bigBen'></a-asset-item>
             <a-asset-item src='assets\models\titanic\scene.gltf' id='titanic'></a-asset-item>
             <a-asset-item src='assets\models\bargate\scene.gltf' id='bargate'></a-asset-item>
+       
            
- 
-            
+
         </a-assets>
       
                                         
         <a-camera  id="camera" gps-projected-camera  rotation-reader cursor="rayOrigin: mouse" updatelocation > 
-            <a-cone  id="cone" color="red" radius-bottom="0.5"  position='0 -2 -5'  rotation="50 0 0" ></a-cone>
-            <a-entity id="arrow" geometry='primitive: helparrow' position='0 -1 -5'  material='color: red' rotation="50 0 0" ></a-entity>
-           
+            <a-entity position='0 0 -2' id="sparrow" look-at visible="false">
+                <a-triangle color="red" vertex-a="0.5 0 0" vertex-b="-0.5 0 0" vertex-c="0 0.6 -0.25" material="side:double" rotation="90 0 0 "></a-triangle>
+                <a-plane text='align:center; color:white; value:Follow me ; width:1' material="side: double; color:red" width=0.5 height=0.5   rotation="-110 0 180 ">
+                    <a-plane text='align:center; color:white; value:GO BACK ; width:2' material="side: double; color:red" width=0.5 height=0.5   rotation="180 0 180 "></a-plane>
+                </a-plane>
+            </a-entity>
             <a-plane text='align:center; color:white; value:Help; width:50' material='color: red ' width=5 height=5 position='50 25 -33' ></a-plane>
         </a-camera>
        
-
+      
         <a-entity  gltf-model='#bigBen'  gps-projected-entity-place='latitude:50.907025; longitude:-1.357324'   scale='0.2 0.2 0.2'  position='0 0 10' id="lel"></a-entity>
         <a-entity  gltf-model='#chest'  gps-projected-entity-place='latitude:50.906158; longitude:-1.356560'   scale='0.2 0.2 0.2'  position='0 0 10'></a-entity>
         <a-entity  gltf-model='#titanic'  gps-projected-entity-place='latitude:50.906158; longitude:-1.356560'   scale='0.2 0.2 0.2'  position='0 0 10'></a-entity>
@@ -44,7 +47,7 @@
         <a-box  material='color: blue' scale='10 10 10' id="box1" position="10, 0 30"   gps-projected-entity-place='latitude:50.907087; longitude:-1.357200'> 
                 <a-text value="Hi"  position="0 1 0"  color='red' look-at='#camera'></a-text>
         </a-box>
-        <a-box  material='color: green' scale='10 10 10' id="clues1" position="10, 0 30"   gps-projected-entity-place='latitude:50.906160; longitude:-1.356560' visible"false"> 
+        <a-box  material='color: green' scale='10 10 10' id="box1" position="10, 0 30"   > 
             <a-text value="Hi"  position="0 1 0"  color='red' look-at='#camera'></a-text>
 
 
@@ -57,7 +60,7 @@
         <button id="search">
             HIDE OBJECTS
         </button>
-       
+        
         <b >Latitude:</b>
         <b id="lat" style="padding-right:4em ">Latitude </b>
         <b >Longitude:</b>
@@ -68,10 +71,10 @@
         <b >Score</b>
         <b id="score" style="padding-right:4em ">Score</b>
         <b id="test" style="padding-right:4em ">test</b>
-
         </div>
     </a-scene>
     
+      
       
      
       
