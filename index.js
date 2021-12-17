@@ -30,37 +30,6 @@ window.onload=function(){
 
   })
 }
-//document.querySelector("[camera]").setAttribute("position", "0 30 0")
-
-//AFRAME.registerGeometry('helparrow', {
-   // init: function() {
-/*
-        const triangle = new THREE.Shape([
-            new THREE.Vector2(0,   0),
-            new THREE.Vector2(1,   0),
-            new THREE.Vector2(0.5, 1)
-        ]);
-        */
-       // triangle.rotation.x=-Math.PI * 0.5;
-        // Make the shape auto-close so we don't have to repeat the first point
-      //  triangle.autoClose = true;
-
-        // Set the geometry field to a new ShapeGeometry making use of the shape
-      //  this.geometry = new THREE.ShapeGeometry(triangle);
-    
-       // getObject3D(triangle)
-     //  const arrow = document.getElementById('cone').object3D;
-
-     //  var position = new THREE.Vector3(10, 60, 30);
-     //  arrow.up = new THREE.Vector3(0,0,-1);
-    //   arrow.lookAt(position);
-       
-   // //var position = new THREE.Vector3(clue.x, clue.y, clue.z);
-
-
-       
-  //  }
-//});
 
 
 
@@ -98,7 +67,7 @@ AFRAME.registerComponent('updatelocation', {
 AFRAME.registerComponent('updatelocation', {
     init: function() {
     if(navigator.geolocation) {
-        navigator.geolocation.watchPosition (
+        navigator.geolocation.getCurrentPosition (
     
             gpspos=> {
             //    if(ROTO=true){
