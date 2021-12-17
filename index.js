@@ -67,7 +67,7 @@ AFRAME.registerComponent('updatelocation', {
 AFRAME.registerComponent('updatelocation', {
     init: function() {
     if(navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition (
+        navigator.geolocation.watchPosition (
     
             gpspos=> {
             //    if(ROTO=true){
